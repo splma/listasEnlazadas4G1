@@ -17,6 +17,10 @@ public class Principal {
         ld.agregar(67);
         System.out.println("Tamaño: " + ld.getTamaño());
        ld.mostrarDI();
+       ld.mostrarDI();
+       ld.mostrarDI();
+       ld.mostrarDI();
+       ld.mostrarDI();
         
     }
 }
