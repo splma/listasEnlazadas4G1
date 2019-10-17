@@ -17,5 +17,7 @@ public class Principal {
         System.out.println("Tamaño: " + ld.getTamaño());
         ld.mostrarDer_Izq();
         ld.mostrarIzq_Der();
+        
+        ld.mostrarIzq_Der();
     }
 }
