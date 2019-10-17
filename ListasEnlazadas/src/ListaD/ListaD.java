@@ -1,6 +1,5 @@
 package ListaD;
 
-import listasenlazadas.*;
 
 public class ListaD {
 
@@ -18,7 +17,7 @@ public class ListaD {
 
     }
 
-    public ListaD agregar(int dato) {
+    public ListaD agregarAlFinal(int dato) {
         if (validar()) {
             Nodo nuevo = new Nodo(dato);
             primerNodo = nuevo;
@@ -35,6 +34,27 @@ public class ListaD {
         this.tamaño++;
         return this;
     }
+    
+    public ListaD agregarAlInicio(int dato) {
+        if (validar()) {
+            Nodo nuevo = new Nodo(dato);
+            primerNodo = nuevo;
+            UltimoNodo = nuevo;
+            nuevo.nodoDere = null;
+            nuevo.nodoIzq = null;
+        } else {
+            Nodo nuevo = new Nodo(dato);
+            nuevo.nodoDere = primerNodo;
+            nuevo.nodoIzq = null;
+            primerNodo.nodoIzq = nuevo;
+            primerNodo=nuevo;
+        }
+        this.tamaño++;
+        return this;
+    }
+    
+    
+    
 
     private boolean validar() {
         return (this.primerNodo == null);
@@ -44,23 +64,25 @@ public class ListaD {
         return tamaño;
     }
     
-    public void mostrarID(){
+    public void mostrarIzq_Der(){
         if (tamaño != 0) {
             Nodo temporal = primerNodo;
             String cadenaValores="";
             for (int i = 0; i < this.tamaño; i++) {
-                cadenaValores += temporal.dato+" \n";
+                cadenaValores += temporal.dato+"-->";
                 temporal= temporal.nodoDere;
             }
             System.out.println(cadenaValores);
         }
     }
-    public void mostrarDI(){
+ 
+   
+    public void mostrarDer_Izq(){
         if (tamaño != 0) {
             Nodo temporal = UltimoNodo;
             String cadenaValores="";
-            for (int i = tamaño; i > 0; i++) {
-                cadenaValores += temporal.dato+" \n";
+            for (int i = tamaño; i > 0; i--) {
+                cadenaValores += temporal.dato+"-->";
                 temporal= temporal.nodoIzq;
             }
             System.out.println(cadenaValores);
