@@ -76,7 +76,7 @@ public class ListaD {
         }
     }
  
-   
+    
     public void mostrarDer_Izq(){
         if (tamaño != 0) {
             Nodo temporal = UltimoNodo;
