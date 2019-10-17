@@ -9,18 +9,13 @@ public class Principal {
 
     public static void main(String[] args) {
         ListaD ld = new ListaD();
-        ld.agregar(13);
-        ld.agregar(15);
-        ld.agregar(67);
-        ld.agregar(67);
-        ld.agregar(67);
-        ld.agregar(67);
+        ld.agregarAlFinal(13);
+        ld.agregarAlFinal(15);
+        ld.agregarAlFinal(67);
+        ld.agregarAlInicio(90);
+        ld.agregarAlInicio(40);
         System.out.println("Tamaño: " + ld.getTamaño());
-       ld.mostrarDI();
-       ld.mostrarDI();
-       ld.mostrarDI();
-       ld.mostrarDI();
-       ld.mostrarDI();
-        
+        ld.mostrarDer_Izq();
+        ld.mostrarIzq_Der();
     }
 }
