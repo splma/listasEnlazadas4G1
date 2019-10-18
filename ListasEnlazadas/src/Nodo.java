@@ -20,7 +20,7 @@ public class Nodo {
         this.nodoIzq = nodoIzq;
     }
 
-    public Nodo(int dato) {
+    public Nodo(Object dato) {
         this.dato = dato;
     }
 }

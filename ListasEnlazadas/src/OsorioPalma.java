@@ -11,23 +11,29 @@
 public class OsorioPalma {
 
     public static void main(String[] args) {
-                
-    }
-}
+        ListaDeObjetos lista = new ListaDeObjetos();
 
-class Producto {
+        lista.agregarAlFinal(new Producto(2, 30, "Papas sabritas"));
+        lista.agregarAlFinal(new Producto(2, 40, "Coca-Cola 1lt"));
+        lista.agregarAlFinal(new Producto(4, 10, "Papas barcel 100 grs"));
+        lista.agregarAlFinal(new Producto(2, 30, "BubuLubu"));
 
-    public Producto(int cantidad, double precio) {
-        this.cantidad = cantidad;
-        this.precio = precio;
-    }
-
-    String nombre = "";
-    int cantidad = 0;
-    double precio = 0;
-
-    double subtotal() {
-        return cantidad * precio;
+        lista.mostrarDer_Izq();
+        System.out.println("--------------------------------");
+        calcularTotalPagar(lista);
     }
 
+    private static void calcularTotalPagar(ListaDeObjetos lista) {
+        int tamaño = lista.getTamaño();
+        if (tamaño != 0) {
+            Nodo temporal = lista.primerNodo;
+            Double totalPagar = 0.0;
+            for (int i = 0; i < tamaño; i++) {
+                Producto p = (Producto) temporal.dato;
+                totalPagar += p.subtotal();
+                temporal = temporal.nodoDere;
+            }
+            System.out.println("Total a pagar: " + totalPagar);
+        }
+    }
 }

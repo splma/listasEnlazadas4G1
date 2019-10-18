@@ -1,8 +1,9 @@
 
 public class ListaDeObjetos {
-     private Nodo primerNodo;
-    private Nodo UltimoNodo;
-    private int tamaño;
+
+    public Nodo primerNodo;
+    public Nodo UltimoNodo;
+    public int tamaño;
 
     public ListaDeObjetos(Nodo primerNodo, Nodo UltimoNodo, int tamaño) {
         this.primerNodo = null;
@@ -14,7 +15,7 @@ public class ListaDeObjetos {
 
     }
 
-    public ListaDeObjetos agregarAlFinal(int dato) {
+    public ListaDeObjetos agregarAlFinal(Object dato) {
         if (validar()) {
             Nodo nuevo = new Nodo(dato);
             primerNodo = nuevo;
@@ -26,13 +27,13 @@ public class ListaDeObjetos {
             nuevo.nodoDere = null;
             nuevo.nodoIzq = UltimoNodo;
             UltimoNodo.nodoDere = nuevo;
-            UltimoNodo=nuevo;
+            UltimoNodo = nuevo;
         }
         this.tamaño++;
         return this;
     }
-    
-    public ListaDeObjetos agregarAlInicio(int dato) {
+
+    public ListaDeObjetos agregarAlInicio(Object dato) {
         if (validar()) {
             Nodo nuevo = new Nodo(dato);
             primerNodo = nuevo;
@@ -44,14 +45,11 @@ public class ListaDeObjetos {
             nuevo.nodoDere = primerNodo;
             nuevo.nodoIzq = null;
             primerNodo.nodoIzq = nuevo;
-            primerNodo=nuevo;
+            primerNodo = nuevo;
         }
         this.tamaño++;
         return this;
     }
-    
-    
-    
 
     private boolean validar() {
         return (this.primerNodo == null);
@@ -60,27 +58,26 @@ public class ListaDeObjetos {
     public int getTamaño() {
         return tamaño;
     }
-    
-    public void mostrarIzq_Der(){
+
+    public void mostrarIzq_Der() {
         if (tamaño != 0) {
             Nodo temporal = primerNodo;
-            String cadenaValores="";
+            String cadenaValores = "";
             for (int i = 0; i < this.tamaño; i++) {
-                cadenaValores += temporal.dato+"-->";
-                temporal= temporal.nodoDere;
+                cadenaValores += temporal.dato + "\n";
+                temporal = temporal.nodoDere;
             }
             System.out.println(cadenaValores);
         }
     }
- 
-    
-    public void mostrarDer_Izq(){
+
+    public void mostrarDer_Izq() {
         if (tamaño != 0) {
             Nodo temporal = UltimoNodo;
-            String cadenaValores="";
+            String cadenaValores = "";
             for (int i = tamaño; i > 0; i--) {
-                cadenaValores += temporal.dato+"-->";
-                temporal= temporal.nodoIzq;
+                cadenaValores += temporal.dato + "\n";
+                temporal = temporal.nodoIzq;
             }
             System.out.println(cadenaValores);
         }
